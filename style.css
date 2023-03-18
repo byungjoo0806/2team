@@ -1,0 +1,97 @@
+.mainBox-wrap{
+    width: 1300px;
+    height: 800px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.choiceBox{
+    width: 1300px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+    background-color: lightblue;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.attack{
+    width: 200px;
+    height: 50px;
+    border: 1px solid brown;
+    border-radius: 10px;
+
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.attack:hover{
+    opacity: 0.8;
+}
+
+.steal{
+    width: 200px;
+    height: 50px;
+    border: 1px solid brown;
+    border-radius: 10px;
+
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.steal:hover{
+    opacity: 0.8;
+}
+
+.itemUse{
+    width: 200px;
+    height: 50px;
+    border: 1px solid brown;
+    border-radius: 10px;
+
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.itemUse:hover{
+    opacity: 0.8;
+}
+
+.monsterBox{
+    height: 350px;
+    border: 1px solid black;
+
+}
+.statBox{
+    border: 1px solid black;
+}
