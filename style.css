@@ -93,5 +93,136 @@
 
 }
 .statBox{
+
+    border: 1px solid black;
+}
+.fightBox{
+    width: 100%;
+    height: 100%;
+
+}
+.playerBox{
+    height: 350px;
+    border: 1px solid black;
+
+}
+
+.nameLevelHp-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+}
+
+.nameLevelBox{
+    height: 50%;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.hpBorderbox{
+    height: 50%;
+    width: 100%;
+    border: 1px solid black;
+}
+.monsterImageBox{
+    border: 1px solid black;
+    height: 100%;
+    width: 40%;
+}
+.flexmodebox{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.blankbox{
+    width: 30%;
+    height: 100%;
+    border: 1px solid black;
+}
+.nameBox{
+    width: 40%;
+    height: 100%;
+    border: 1px solid black;
+
+}
+.levelBox{
+    width: 27%;
+    height: 100%;
+    border: 1px solid black;
+
+}
+.hpBorderbox{
+    display: flex;
+    flex-wrap: wrap;
+}
+.leftBox{
+    width: 15%;
+    height: 100%;
+    border: 1px solid black;
+}
+.hpUnderBar-wrap{
+    width: 83%;
+    height: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.hpBox{
+    width: 100%;
+    height: 50%;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.underBar{
+    width: 100%;
+    height: 50%;
+    border: 1px solid black;
+
+}
+.hpText{
+    width: 20%;
+    height: 100%;
+    border: 1px solid black;
+
+}
+
+.hpRedBarBox{
+    width: 78%;
+    height: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+.hpRedBar{
+    width: 50%;    
+    height: 50%;
+    border: 1px solid black;
+}
+.hpRedBarBox .underBar{
+    width: 70%;
+    height: 50%;
+    border: 1px solid black;
+
+}
+
+.hpBorderbox .leftBox{
+    width: 15%;
+    height: 100%;
+    border: 1px solid black;
+
+}
+.hpBox .flexmodebox{
+    display: flex;
+    width: 78%;
+    height: 100%;
+    flex-wrap: wrap;
     border: 1px solid black;
 }

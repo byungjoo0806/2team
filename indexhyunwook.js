@@ -3,14 +3,18 @@ const MaxStealPercentage = 100;
 
 //                                          atk def  hp crit exp money stealPer 기본 20%
 let player = new mainPlayerCharacter("병주", 10, 10, 100, 0.5, 0, 1000, 20);
-//                                       atk def hp stealSuccessPer
-let muheon = new createCharacters("무헌", 10, 10, 100, 0);
-let professor = new createCharacters("교수", 5, 15, 80, 5);
-let boss_lee = new createCharacters("학과장", 20, 10, 200, 10);
-let hyunwook = new createCharacters("현욱", 20, 10, 200, 10);
-let ahyun = new createCharacters("아현", 20, 10, 200, 10);
-let jisup = new createCharacters("지섭", 20, 10, 200, 10);
-let megacoffee = new createCharacters("메가커피", 20, 10, 200, 10);
+//                                       atk def hp stealSuccessPer exp
+let muheon = new createCharacters("무헌", 10, 10, 100, 0,10);
+let professor = new createCharacters("교수", 5, 15, 80, 5,20);
+let boss_lee = new createCharacters("학과장", 20, 10, 200, 10,100);
+let hyunwook = new createCharacters("현욱", 20, 10, 200, 10,1);
+let ahyun = new createCharacters("아현", 20, 10, 200, 10,5);
+let jisup = new createCharacters("지섭", 20, 10, 200, 10,1);
+let megacoffee = new createCharacters("메가커피", 20, 10, 200, 10,30);
+
+let monster = [muheon, professor, hyunwook, ahyun, jisup, megacoffee, boss_lee];
+console.log(player);
+
 
 function buttonClickAttack() {
     attack();
@@ -49,9 +53,13 @@ function steal(monsterPer) {
 }
 
 
-function getExp() {
+function getExp(monster) {
+    player.exp=monster.exp;
 
 }
+
+getExp(muheon);
+console.log(player.exp);
 
 function alertMessage(message) {
     console.log(message);
@@ -68,12 +76,14 @@ function itemUse() {
 
 }
 
-function createCharacters(name, atk, def, hp, stealSuccessPer) { // 플레이어와 몬스터 생성 함수
+function createCharacters(name, atk, def, hp, stealSuccessPer,exp) { // 플레이어와 몬스터 생성 함수
     this.name = name;
     this.atk = atk;
     this.def = def;
     this.hp = hp;
     this.stealSuccessPer = stealSuccessPer; // 이확률은 내 훔치기 성공확률에서 -연산을 해주게된다.
+    this.exp=exp;
+    
 }
 function mainPlayerCharacter(name, atk, def, hp, crit, exp, money, stealPer) {
     this.name = name;
@@ -88,15 +98,6 @@ function mainPlayerCharacter(name, atk, def, hp, crit, exp, money, stealPer) {
 }
 
 
-
-let monster = [muheon, professor, hyunwook, ahyun, jisup, megacoffee, boss_lee];
-console.log(player);
-for (let i = 0; i < monster.length; i++) {
-
-    console.log(monster[i].hp);
-}
-
-// 몬스터 [1] 에 배열번호 체크 
 
 function rndMonsterAppear() {
     let AppearIndex = [];
@@ -139,7 +140,6 @@ function rndMonsterAppear() {
 }
 
 
-rndMonsterAppear();
 function mainPlayerCharactesDie() {
     if (player.hp === 0)//플레이어가 죽는조건
     {
@@ -161,7 +161,4 @@ function MonstersDie() {
         getExp();
     }
 
-
 }
-
-steal(1);
