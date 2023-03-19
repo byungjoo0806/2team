@@ -237,7 +237,6 @@ function getDamge100() {
     }
 }
 
-
 function createCharacters(name, atk, def, hp, stealSuccessPer, exp, level) { // 플레이어와 몬스터 생성 함수
     this.name = name;
     this.atk = atk;
@@ -382,6 +381,7 @@ function sleep(ms) {
     const wakeUpTime = Date.now() + ms;
     while (Date.now() < wakeUpTime) { }
 }
+
 async function f() {
     let promise = new Promise((resolve, reject) => {
         setTimeout(() => resolve(selectPlayerChoice), 3000)
@@ -413,7 +413,7 @@ async function f() {
     }
 }
 
-
+f();
 
 // function playerAct() { // 이벤트를 통해 받아올 변수
 //     //onclick를 통해 리턴이 들어오면
