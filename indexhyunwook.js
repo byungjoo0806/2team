@@ -312,6 +312,7 @@ function rndMonsterAppear() { // 몬스터 등장순서 랜덤으로 만드는 �
     AppearIndex[6] = monster[6];
     console.log("최종");
     console.log(AppearIndex);
+    return AppearIndex
 }
 
 
@@ -330,13 +331,12 @@ function mainPlayerCharactesDie() {
 }
 
 
-function MonstersDie(i) {
-    let temp;
-    if (monster[i].hp === 0) { // 
+function MonstersDie(monsObj) {
+    if (monsObj.hp === 0) { // 
         console.log("몬스터죽음");
         getExp();
         return true
-    } else (monster[i].hp !== 0)
+    } else (monsObj.hp !== 0)
     {
         console.log("몬스터살아있음");
         return false
@@ -347,13 +347,15 @@ function MonstersDie(i) {
 function cut() {
 
 }
+function monsterAct(){
 
-function fight(monsterName) {
-    setMonster(monsterName);
+}
+
+function fight(monsObj) {
+    
     let gmaeDone = true;
     let preAttackbit = 0; // 0일때 플레이어 공격 1일때 몬스터 공격 시작은 항상0으로 시작한다.
-
-
+    setMonster(monsObj.name);
     while (gmaeDone) {
         if (preAttackbit === 0) {
             //3가지중하나가 선택가능하다. 하나만가능하다는 메시지를 넘겨준다. 싸우기 버튼을 누를경우 리턴1을해준다. 훔치기를 누를경우 리턴2를해준다. 인벤토리를 3을 리턴한다.
@@ -365,7 +367,7 @@ function fight(monsterName) {
             monsterAct();
             preAttackbit = 0;
         }
-        if (mainPlayerCharactesDie() || MonstersDie(monsterName)) {
+        if (mainPlayerCharactesDie() || MonstersDie(monsObj)) {
             gmaeDone = false;
             preAttackbit = 0;
 
@@ -373,7 +375,6 @@ function fight(monsterName) {
 
     }
 }
-fight(muheon);
 function setPlayer() {
     // mainstart 할때 플레이어 캐릭터 객체를 생성하기때문에 따로 선언하지않는다.
 }
@@ -499,11 +500,15 @@ function mainStatSet() {
 
 }
 function mainFightstart() {
+    let mons=[];
+    mons=rndMonsterAppear();
     //몬스터 배열정리랜덤배열
     rndMonsterAppear();
     //컷신 불러오는 함수
     //전투를 불러오는함수   //몬스터를 세팅시켜주는함수  //플레이어를 세팅시켜주는함수
-    fight();
+    fight(mons[0]);
+    cut();
+    
     //게임은 턴제방식 선공권은 항상플레이어가 가진다.
     //어떤행동을하든 1턴을 소모한다.
     //공격시 getdmg함수 steal 함수 useitem함수 플레이어 선제턴 진행
