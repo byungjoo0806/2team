@@ -40,7 +40,7 @@ function mainStart() {
 
   // 임의로 4개 더 추가
   new createItem(5, 500, "공격력 증가 아이템2", "atk", "./img/red-potion.png");
-  new createItem(6, 600, "방어력 증가 아이템2", "def", "./img/red-potion2.png");
+  new createItem(6, 600, "방어력 증가 아이템2", "def", "./img/red-potion.png");
   new createItem(7, 700, "체력 증가 아이템2", "hp", "./img/red-potion.png");
   new createItem(8, 800, "훔치기 확률 아이템2", "steal", "./img/red-potion2.png");
 
@@ -120,7 +120,7 @@ function openStoreItem() {
   let storeItemDiv = document.querySelector(".store-items-div");
 
   // 아이템 화면에 출력
-  text = "<div>";
+  let text = "<div>";
   storeItems.forEach(function(i, v) {
     console.log(i);
 
@@ -212,7 +212,7 @@ function itemBuy(itemcontent) {
   function showInventory() {
     // 인벤토리 배열에 있는 아이템 객체들을 가져옴.
     let inventoryItems = getInventoryItems();
-  console.log()
+    console.log();
     // 인벤토리를 보여주는 UI 요소를 선택.
     // let inventoryUI = document.querySelector('.main-inventory-wrap');
     let inventoryUI = document.querySelector('.inventory-items-div');

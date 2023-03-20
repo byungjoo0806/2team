@@ -139,6 +139,10 @@ div {
   width: 30%;
 }
 
+.main-stat-name {
+  width: 40px;
+}
+
 /* .store-item .main-stat div{
   text-align: center;
 } */
@@ -288,6 +292,8 @@ div {
   /* background-color: #fff; */
   background-size: 110px;
   z-index: 5;
+
+  background-repeat: no-repeat;
 }
 
 .store-item .main-stat div {
