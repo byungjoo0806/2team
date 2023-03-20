@@ -210,7 +210,12 @@ function itemBuy(itemcontent) {
     } else {
       popupinventory.classList.add("is-active");
       
-      showInventory();
+      // showInventory();
+
+      // -----------
+      // openInven();
+
+      countItems();
     }
   }
 
@@ -218,6 +223,7 @@ function itemBuy(itemcontent) {
     console.log("인벤토리아이템");
 
     let invenDiv = document.querySelector(".inventory-items-div");
+    // let invenDiv = document.querySelector(".inventory-items-div");
 
     // 아이템 화면에 출력
     let text = "<div>";
@@ -230,60 +236,110 @@ function itemBuy(itemcontent) {
 
     text += `<div class="store-item">
     <div style="font-weight:600;">${i['content']}</div>
-
-    <div class="store-item-img" style="background-image"url(${i['itemimg']});"</div>
-
-    <div class="main-stat"><div>효과</div>
-
-    <div>${i['type']} +${i['point']}</div><div>
-    
-    <div class="main-stat"><div>가격</div><div>${i['price']}</div></div>
-    
-    <div class="buy-btn" onclick="itemBuy('${i['content']}')">구매</div></div>`;
+    <div class="store-item-img" style="background-image:url(${i['itemimg']});"</div></div>`;
 
     invenDiv.innerHTML=text;
-    })
+    });
     text += "</div>";
 
   }
 
+  // 인벤토리 안 아이템의 개수 세는 함수
+  function countItems() {
+    let contents = [];
+    let invenDiv = document.querySelector(".inventory-items-div");
+    
+    console.log("countItem");
+    
+    inven.forEach(function(item) {
+      
+      // 이미 개수 확인한 아이템이라면
+      if (contents.indexOf(item['content']) >= 0) {
+        // 아무것도 안함
+        console.log("이미개수확인", contents.indexOf(item['content']));
+
+      } else { // 처음 개수 세는 아이템
+        let num = 0;
+
+        console.log("처음 세는 아이템");
+        // 개수 세기
+        num = inven.filter(function(i) {
+          if (i['content'] === item['content']) {
+            return true;
+          }}).length;
+        
+        console.log("개수");
+        console.log(item);
+        console.log(num);
+        
+        // // 화면에 출력
+        // openInven(num);
+
+
+        console.log("인벤토리아이템");
+
+    
+        // 아이템 화면에 출력
+        let text = "<div>";
+    
+        text += `<div class="store-item">
+        <div style="font-weight:600;">${item['content']}</div>
+          <div>${num}<div>
+        <div class="store-item-img" style="background-image:url(${item['itemimg']});"</div></div>`;
+    
+        invenDiv.innerHTML+=text;
+        text += "</div>";
+
+
+
+
+        // contents 배열에 추가
+        contents.push(item['content']);
+      }
+
+      console.log("contents : ", contents);
+      
+      });
+    
+
+  }
 
 
   
-  function showInventory() {
-    // 인벤토리 배열에 있는 아이템 객체들을 가져옴.
-    let inventoryItems = getInventoryItems();
-    console.log();
-    // 인벤토리를 보여주는 UI 요소를 선택.
-    // let inventoryUI = document.querySelector('.main-inventory-wrap');
-    let inventoryUI = document.querySelector('.inventory-items-div');
+  // function showInventory() {
+  //   // 인벤토리 배열에 있는 아이템 객체들을 가져옴.
+  //   let inventoryItems = getInventoryItems();
+  //   console.log();
+  //   // 인벤토리를 보여주는 UI 요소를 선택.
+  //   // let inventoryUI = document.querySelector('.main-inventory-wrap');
+  //   let inventoryUI = document.querySelector('.inventory-items-div');
   
-    // 이전에 인벤토리 UI에 존재하는 모든 자식 요소들을 삭제.
-    // while (inventoryUI.firstChild) {
-    //   inventoryUI.removeChild(inventoryUI.firstChild);
-    // }
+  //   // 이전에 인벤토리 UI에 존재하는 모든 자식 요소들을 삭제.
+  //   // while (inventoryUI.firstChild) {
+  //   //   inventoryUI.removeChild(inventoryUI.firstChild);
+  //   // }
     
   
-    // 인벤토리 배열에 있는 각각의 아이템 객체들을 화면에 보여줌.
-    inventoryItems.forEach(item => {
-      let itemUI = document.createElement('div');
-      itemUI.textContent = item.content;
-      itemUI.setAttribute('class',"store-item");
+  //   // 인벤토리 배열에 있는 각각의 아이템 객체들을 화면에 보여줌.
+  //   inventoryItems.forEach(item => {
+  //     // let itemUI = document.createElement('div');
+  //     // itemUI.textContent = item.content;
+  //     // itemUI.setAttribute('class',"store-item");
 
-      inventoryUI.appendChild(itemUI);
+  //     // inventoryUI.appendChild(itemUI);
       
-      console.log("inventoryitemsforeach");
-      console.log(item);
+  //     // console.log("inventoryitemsforeach");
+  //     // console.log(item);
 
-    });
-    // 인벤토리 UI를 화면에 보여줌.
-    // inventoryUI.style.display = 'block';
-  }
+  //   });
+  //   // 인벤토리 UI를 화면에 보여줌.
+  //   // inventoryUI.style.display = 'block';
+  // }
   
-  function getInventoryItems() {
-    // 인벤토리 배열. 전역 변수로 선언된 inventory 배열을 사용.
-    return inven;
-  }
+  // function getInventoryItems() {
+  //   // 인벤토리 배열. 전역 변수로 선언된 inventory 배열을 사용.
+  //   return inven;
+  // }
   
 
 
