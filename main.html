@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <!-- 메인 화면이 표시될 공간 -->
+    <div class="main-container">
+
+      <!-- 플레이어, 스탯창 -->
+      <div>
+        <!-- 스탯창 -->
+        <div class="main-stat-div">
+
+          <div>
+
+              <!-- 이름 -->
+            <div class="main-stat-name">player name</div>
+
+              <!-- 공격력 -->
+            <div class="main-stat">
+              <div>atk</div>
+              <div class="main-stat-atk">player atk</div>
+            </div>
+            
+            <!-- 방어력 -->
+            <div class="main-stat">
+              <div>def</div>
+              <div class="main-stat-def">player def</div>
+            </div>
+            
+            <!-- 체력 -->
+            <div class="main-stat">
+              <div>hp</div>
+              <div class="main-stat-hp">player hp</div>
+            </div>
+
+          </div>
+          
+          <!-- 스탯창에 마우스 올리면 보이는 영역 -->
+          <div class="main-stat-none" style="visibility: hidden;">
+          <!-- <div class="main-stat-none" style="display: none;"> -->
+            <!-- 돈 -->
+            <div class="main-stat">
+              <div>money</div>
+              <div class="main-stat-money">player money</div>
+            </div>
+            
+            <!-- 훔치기확률 -->
+            <div class="main-stat">
+              <div>stealper</div>
+              <div class="main-stat-stealper">player stealper</div>
+            </div>
+          </div>
+
+          
+        </div>
+        <!-- 플레이어 -->
+        <div class="main-player">플레이어</div>
+      </div>
+
+      <!-- 버튼 영역 -->
+      <div class="main-btns-div">
+        <!-- 상점 버튼 -->
+        <div class="main-btn" onclick="openStore()">상점</div>
+
+        <!-- 인벤토리 버튼 -->
+        <div class="main-btn" onclick="openInventory()">인벤토리</div>
+
+        <!-- 전투 시작 버튼 -->
+        <div class="main-btn start-btn">전투 시작</div>
+      </div>
+    </div>
+
+
+    <!-- 상점 화면 -->
+    <div class="main-store-wrap">
+      <div class="popup-store-content">
+        <span onclick="openStore()"></span>
+        <h2>상점</h2>
+
+        <!-- 상점 아이템 화면 -->
+        <div class="store-items-div">
+          
+            <!-- 아이템 4개 출력 -->
+          
+        </div>
+        
+      </div>
+
+    </div>
+            <!-- 인벤토리 화면  -->
+    <div class="main-inventory-wrap">
+
+
+        
+        <div class="popup-inventory-content">
+          <span onclick="openInventory()"></span>
+          <h2>인벤토리</h2>
+  
+          <!-- 인벤토리 아이템 화면 -->
+          <div class="inventory-items-div">
+            
+              <!-- 아이템 4개 출력 -->
+            
+          </div>
+          
+        </div>
+  
+      </div>
+  
+
+
+  </body>
+  <script src="main.js"></script>
+</html>
