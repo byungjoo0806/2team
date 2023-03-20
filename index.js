@@ -14,8 +14,7 @@ login.addEventListener('click', () => {
     if (id.value == '2team'){
         if (password.value == '1234') {
             alert('로그인 되었습니다!') 
-            ducument.location.href="www.naver.com";
-            
+            window.location.href="main.html";
         }
         else {
             alert('아이디와 비밀번호를 다시 확인해주세요')

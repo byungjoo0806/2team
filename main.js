@@ -215,7 +215,7 @@ function itemBuy(itemcontent) {
   }
 
   function openInven() {
-    console.log("인벤토리아이템");
+    console.log("인벤토리아이템");item.content
 
     let invenDiv = document.querySelector(".inventory-items-div");
 
