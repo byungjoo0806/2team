@@ -121,6 +121,8 @@ div {
   height: 40px;
   margin-right: 10px;
   border-radius: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
 
   background-color: #fff;
 
@@ -136,7 +138,11 @@ div {
 }
 
 .store-item .main-stat div:nth-child(1) {
-  width: 30%;
+  width: 26%;
+}
+
+.store-item .main-stat div:nth-child(2) {
+  width: 74%;
 }
 
 .main-stat-name {
@@ -291,7 +297,7 @@ div {
   
   /* background-color: #fff; */
   background-size: 110px;
-  z-index: 5;
+  /* z-index: 5; */
 
   background-repeat: no-repeat;
 }
@@ -397,3 +403,15 @@ div {
   width: 500px;
   cursor: pointer;
 }
+
+/* ============================= */
+/* 전투할때 아이템 버튼 클릭하면 표시되는 영역*/
+.inven-item {
+  display: flex;
+}
+
+.inven-item .store-item {
+  width: 150px;
+  height: 150px;
+}
+/* ============================== */

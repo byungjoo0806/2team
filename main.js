@@ -36,13 +36,13 @@ function mainStart() {
   new createItem(1, 100, "공격력 증가 아이템", "atk", "./img/red-potion.png"); // 공격력 증가 아이템
   new createItem(2, 200, "방어력 증가 아이템", "def", "./img/red-potion2.png"); // 방어력 증가 아이템   
   new createItem(3, 300, "체력 증가 아이템", "hp", "./img/red-potion.png"); // 체력 증가 아이템
-  new createItem(4, 400, "훔치기 확률 아이템", "steal", "./img/red-potion2.png"); // 훔치기 확률 증가
+  new createItem(4, 400, "훔치기 확률 아이템", "stealPer", "./img/red-potion2.png"); // 훔치기 확률 증가
 
   // 임의로 4개 더 추가
   new createItem(5, 500, "공격력 증가 아이템2", "atk", "./img/red-potion.png");
   new createItem(6, 600, "방어력 증가 아이템2", "def", "./img/red-potion.png");
   new createItem(7, 700, "체력 증가 아이템2", "hp", "./img/red-potion.png");
-  new createItem(8, 800, "훔치기 확률 아이템2", "steal", "./img/red-potion2.png");
+  new createItem(8, 800, "훔치기 확률 아이템2", "stealPer", "./img/red-potion2.png");
 
   // 스탯창 설정 함수
   mainStatSet();
@@ -179,6 +179,10 @@ function itemBuy(itemcontent) {
           putInven(i);
           alert(`구매 완료되었습니다. 현재 money :  ${player['money']}`);
           console.log("구매 완료");
+
+          // 메인화면 스탯 변경
+          mainStatSet();
+
           return true;
         } else {
           alert(`돈이 부족합니다. 현재 money : ${player['money']}`);
@@ -304,6 +308,54 @@ function itemBuy(itemcontent) {
     
 
   }
+
+
+  // ==========================================
+  // 아이템 버튼 누르면 실행되는 함수
+function useItem() {
+  let invenItemDiv = document.querySelector('.inven-item');
+  invenItemDiv.innerHTML = "";
+  
+  inven.forEach(function(i) {
+    
+    // 아이템 출력
+    text = `<div id="invenitem" class="store-item" onclick="applyStat('${i['content']}')" style="cursor:pointer;">
+    <div style="font-weight:600;">${i['content']}</div>
+    <div class="store-item-img" style="background-image:url(${i['itemimg']});"</div></div>`;
+
+    invenItemDiv.innerHTML+=text;
+  });
+}
+
+// 아이템 클릭하면 아이템 적용하는 함수(스탯 변경, 인벤토리에서 삭제)
+function applyStat(itemcontent) {
+  console.log(itemcontent);
+
+  alert(`${itemcontent} 사용`);
+
+  inven.some(function(i, v) {
+
+    if (itemcontent === i['content']) {
+      let type = i['type'];
+      let point = i['point'];
+    // 스탯 변경
+      player[type] += Number([point]);
+  
+    // 사용한 아이템 인벤토리에서 삭제
+      inven.splice(v,1);
+      return true
+    }
+  });
+
+  // // 아이템 화면 삭제
+  document.querySelector('.inven-item').innerHTML = '';
+
+  // 메인화면 스탯 변경
+  mainStatSet();
+
+}
+
+  // ==========================================
 
 
   
