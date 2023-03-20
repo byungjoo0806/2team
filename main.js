@@ -248,7 +248,8 @@ function itemBuy(itemcontent) {
   function countItems() {
     let contents = [];
     let invenDiv = document.querySelector(".inventory-items-div");
-    
+    invenDiv.innerHTML = "";
+
     console.log("countItem");
     
     inven.forEach(function(item) {
