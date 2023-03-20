@@ -131,11 +131,17 @@ function openStoreItem() {
     
     text += `<div class="store-item">
     <div style="font-weight:600;">${i['content']}</div>
+
     <div class="store-item-img" style="background-image:url(${i['itemimg']});"></div>
+
     <div class="main-stat"><div>효과</div>
+
     <div>${i['type']} +${i['point']}</div></div>
+
     <div class="main-stat"><div>가격</div><div>${i['price']}</div></div>
+
     <div class="buy-btn" onclick="itemBuy('${i['content']}')">구매</div></div>`;
+
     storeItemDiv.innerHTML= text;
 
     // let itemimg = document.querySelector('.store-item-img');
@@ -196,17 +202,52 @@ function itemBuy(itemcontent) {
   // 인벤토리 창 
   function openInventory() {
     let popupinventory = document.querySelector(".main-inventory-wrap");
-    console.log("ddd");
+   
     if (popupinventory.classList.contains("is-active")) {
-        console.log("dddd");
+       
       popupinventory.classList.remove("is-active");
       
     } else {
       popupinventory.classList.add("is-active");
-      console.log("eqqeeq")
+      
       showInventory();
     }
   }
+
+  function openInven() {
+    console.log("인벤토리아이템");
+
+    let invenDiv = document.querySelector(".inventory-items-div");
+
+    // 아이템 화면에 출력
+    let text = "<div>";
+    inven.forEach(function(i,v){
+      console.log(i);
+
+      if (v%4 === 0) {
+        text += "</div><div>";
+      }
+
+    text += `<div class="store-item">
+    <div style="font-weight:600;">${i['content']}</div>
+
+    <div class="store-item-img" style="background-image"url(${i['itemimg']});"</div>
+
+    <div class="main-stat"><div>효과</div>
+
+    <div>${i['type']} +${i['point']}</div><div>
+    
+    <div class="main-stat"><div>가격</div><div>${i['price']}</div></div>
+    
+    <div class="buy-btn" onclick="itemBuy('${i['content']}')">구매</div></div>`;
+
+    invenDiv.innerHTML=text;
+    })
+    text += "</div>";
+
+  }
+
+
 
   
   function showInventory() {
@@ -221,6 +262,7 @@ function itemBuy(itemcontent) {
     // while (inventoryUI.firstChild) {
     //   inventoryUI.removeChild(inventoryUI.firstChild);
     // }
+    
   
     // 인벤토리 배열에 있는 각각의 아이템 객체들을 화면에 보여줌.
     inventoryItems.forEach(item => {
