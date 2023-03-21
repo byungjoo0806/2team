@@ -1,0 +1,430 @@
+/*  */
+* {
+  font-weight: 600;
+ 
+}
+
+div {
+  border-radius: 6px;
+}
+
+.wholePage{
+  width: 100%;
+}
+
+.main-container * {
+  margin: 4px;
+}
+
+.main-container {
+  width: 1300px;
+  height: 800px;
+  border: 1px solid black;
+
+  display: flex;
+  justify-content: space-between;
+  /* float: left; */
+  position: relative;
+
+  margin: auto;
+}
+
+.main-btns-div {
+  float: right;
+  position: relative;
+}
+
+.main-btn {
+  width: 200px;
+  height: 50px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+
+  text-align: center;
+  align-items: center;
+  line-height: 50px;
+
+  cursor: pointer;
+
+  background: rgb(204, 156, 0);
+  background: linear-gradient(0deg, rgb(228, 137, 0) 0%, rgb(255, 193, 70) 100%);
+  border: none;
+
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+}
+
+.main-btn:hover {
+  background: rgb(204, 156, 0);
+  background: linear-gradient(0deg, rgb(255, 177, 59) 0%, rgb(255, 193, 70) 100%);
+
+  box-shadow:  2px 2px 4px 0 rgba(255,255,255,.5),
+              -2px -2px 4px 0 rgba(116, 125, 136, .5), 
+    inset -2px -2px 4px 0 rgba(255,255,255,.2),
+    inset 2px 2px 4px 0 rgba(0, 0, 0, .4);
+}
+
+.start-btn {
+  position: absolute;
+  bottom:0px;
+}
+
+/* 메인화면에서 플레이어가 있는 공간 */
+.main-player {
+  width: 300px;
+  height: 500px;
+
+  background-image: url(https://mblogthumb-phinf.pstatic.net/MjAyMTEwMDVfMjkz/MDAxNjMzNDE5NDM5MzY1.C69FSduuaiTt9LkMykKzsMu2YpWQk50LHninjXFSbNcg.yvzNU4LUEaHd-5VKTgzzfkm8kuXikMnE1VFtm4gj7-Ag.JPEG.parkamsterdam/IMG_3467.JPG?type=w800);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  position: absolute;
+  bottom: 10px;
+  left: 150px;
+}
+
+/* 스탯창 */
+.main-stat-div {
+  width: 560px;
+  /* width: fit-content; */
+  height: 50px;
+  background-color: gray;
+
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+}
+
+/* 스탯창에 마우스 올렸을때 */
+.main-stat-div:hover {
+  width: 560px;
+  height: fit-content;
+}
+
+
+.main-stat-div:hover div{
+  visibility: visible;
+  /* display: flex; */
+  /* background-color: #fff; */
+
+  height: fit-content;
+}
+
+.main-stat-div:hover > div {
+  display: block;
+}
+
+.main-stat-div > div{
+  display: flex;
+}
+
+.main-stat{
+  width: 130px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+
+  background-color: #fff;
+
+  display: flex;
+  align-items: center;
+
+  box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, .4), inset -2px -2px 4px 0 rgba(0, 0, 0, .4);
+}
+
+.main-stat div{
+  width: 50%;
+  /* text-align: center; */
+}
+
+.store-item .main-stat div:nth-child(1) {
+  width: 26%;
+}
+
+.store-item .main-stat div:nth-child(2) {
+  width: 74%;
+}
+
+.main-stat-name {
+  width: 40px;
+}
+
+/* .store-item .main-stat div{
+  text-align: center;
+} */
+
+/* 상점 팝업창 뒤 회색 배경*/
+.main-store-wrap {
+  width: 1300px;
+  height: 800px;
+  position: fixed;
+  background-color: rgba(0,0,0,0.7);
+  top: 0;
+
+
+  margin-top: 8px;
+  /* margin-left: 4px; */
+  padding: 4px;
+
+  display: none;
+  align-items: center;
+  text-align: center;
+  /* vertical-align: middle; */
+  
+}
+
+.main-store-wrap.is-active {
+  display: flex;
+}
+
+.popup-store-content {
+  background-color: #fff;
+  border-radius: 6px;
+  width: 80%;
+  height: 80%;
+  margin: auto;
+
+  position: relative;
+
+  box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, .4), inset -2px -2px 4px 0 rgba(0, 0, 0, .4);
+}
+
+.popup-store-content span {
+  width: 30px;
+  height: 30px;
+  background-color: wheat;
+  border-radius: 12px;
+
+  position: absolute;
+  top:10px;
+  right:10px;
+
+  cursor: pointer;
+
+  background: rgb(204, 156, 0);
+  background: linear-gradient(0deg, rgb(228, 137, 0) 0%, rgb(255, 193, 70) 100%);
+  border: none;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .4);
+}
+
+.popup-store-content span:hover {
+  background: rgb(204, 156, 0);
+  background: linear-gradient(0deg, rgb(255, 177, 59) 0%, rgb(255, 193, 70) 100%);
+
+  box-shadow:  1px 1px 2px 0 rgba(255,255,255,.5),
+              -1px -1px 2px 0 rgba(116, 125, 136, .5), 
+    inset -1px -1px 2px 0 rgba(255,255,255,.2),
+    inset 1px 1px 2px 0 rgba(0, 0, 0, .4);
+}
+
+.popup-store-content span::after, .popup-store-content span::before {
+  content: "";
+  width: 15px;
+  height: 4px;
+  background-color: black;
+  
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.popup-store-content span::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.store-items-div {
+  width: 80%;
+  height: 44%;
+  border-radius: 12px;
+  background-color: #eee;
+  display: block;
+  margin: auto;
+
+  padding: 10px;
+  overflow: auto;
+
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+}
+
+.store-items-div > div {
+  /* display: block; */
+  display: flex;
+  margin-bottom: 20px;
+}
+
+
+/* .store-items-div div {
+  background-color: gray;
+  width: 20%;
+  height: 60%;
+  margin-left: 2px;
+  /* text-align: center; */
+  /* margin: auto; 
+  
+}*/
+
+
+
+.store-item {
+  width: 100%;
+  background-color: gray;
+  margin : auto;
+  margin-inline: 4px;
+  border-radius: 4px;
+  padding:4px;
+
+  box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, .4), inset -2px -2px 4px 0 rgba(0, 0, 0, .4);
+}
+
+.store-item * {
+  border-radius: 4px;
+  align-items: center;
+  margin: auto;
+  margin-top: 4px;
+
+  
+  position: relative;
+}
+
+.store-item-img {
+  width: 110px;
+  height: 110px;
+  vertical-align: middle;
+  
+  /* background-color: #fff; */
+  background-size: 110px;
+  /* z-index: 5; */
+
+  background-repeat: no-repeat;
+}
+
+.store-item .main-stat div {
+  margin: auto;
+}
+
+/* .store-items-div div div {
+  display: block;
+
+} */
+
+.buy-btn {
+  cursor: pointer;
+  /* font-weight: 600; */
+  background-color: #fff;
+  width: 100px;
+
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+}
+
+.buy-btn:hover {
+  box-shadow:  2px 2px 4px 0 rgba(255,255,255,.5),
+              -2px -2px 4px 0 rgba(116, 125, 136, .5), 
+    inset -2px -2px 4px 0 rgba(255,255,255,.2),
+    inset 2px 2px 4px 0 rgba(0, 0, 0, .4);
+}
+
+
+
+
+  
+.main-inventory-wrap {
+  width: 1300px;
+  height: 800px;
+  position: fixed;
+  background-color: rgba(0,0,0,0.7);
+  top: 0;
+
+
+  margin-top: 8px;
+  /* margin-left: 4px; */
+  padding: 4px;
+
+  display: none;
+  align-items: center;
+  text-align: center;
+  /* vertical-align: middle; */
+  
+}
+
+
+.popup-inventory-content {
+  background-color: #fff;
+  border-radius: 6px;
+  width: 80%;
+  height: 80%;
+  margin: auto;
+
+  position: relative;
+
+}
+
+.popup-inventory-content span {
+  width: 30px;
+  height: 30px;
+  background-color: wheat;
+  border-radius: 12px;
+
+  position: absolute;
+  right:0;
+
+  cursor: pointer;
+}
+
+.popup-inventory-content span::after, .popup-inventory-content span::before {
+  content: "";
+  width: 15px;
+  height: 4px;
+  background-color: black;
+  
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.popup-inventory-content span::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.main-inventory-wrap.is-active {
+  display: flex;
+}
+
+.inventory-items-div {
+  padding: 100px;
+  display: flex;
+  width: 500px;
+  cursor: pointer;
+}
+
+/* ============================= */
+/* 전투할때 아이템 버튼 클릭하면 표시되는 영역*/
+.inven-item {
+  display: flex;
+}
+
+.inven-item .store-item {
+  width: 150px;
+  height: 150px;
+}
+
+.startFight{
+  text-decoration: none;
+  color: black;
+}
+/* ============================== */
