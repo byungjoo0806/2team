@@ -30,13 +30,13 @@ function mainStart() {
 
   // 플레이어 생성
   //                                      atk def  hp crit exp money stealPer 기본 20%
-  player = new mainPlayerCharacter("병주", 10, 10, 100, 0.5, 0, 1000, 20);
+  player = new mainPlayerCharacter("병주", 100, 10, 200, 0.5, 0, 1000, 20);
 
   // 상점 아이템 생성 
-  new createItem(1, 100, "공격력 증가 아이템", "atk", "./img/red-potion.png"); // 공격력 증가 아이템
-  new createItem(2, 200, "방어력 증가 아이템", "def", "./img/red-potion2.png"); // 방어력 증가 아이템   
-  new createItem(3, 300, "체력 증가 아이템", "hp", "./img/red-potion.png"); // 체력 증가 아이템
-  new createItem(4, 400, "훔치기 확률 아이템", "stealPer", "./img/red-potion2.png"); // 훔치기 확률 증가
+  new createItem(10, 100, "공격력 증가 아이템", "atk", "./img/red-potion.png"); // 공격력 증가 아이템
+  new createItem(10, 200, "방어력 증가 아이템", "def", "./img/red-potion2.png"); // 방어력 증가 아이템   
+  new createItem(10, 300, "체력 증가 아이템", "hp", "./img/red-potion.png"); // 체력 증가 아이템
+  new createItem(10, 400, "훔치기 확률 아이템", "stealPer", "./img/red-potion2.png"); // 훔치기 확률 증가
 
   // 임의로 4개 더 추가
   new createItem(5, 500, "공격력 증가 아이템2", "atk", "./img/red-potion.png");
@@ -217,9 +217,9 @@ function itemBuy(itemcontent) {
       // showInventory();
 
       // -----------
-      // openInven();
+      openInven();
 
-      countItems();
+      // countItems();
     }
   }
 
@@ -227,6 +227,7 @@ function itemBuy(itemcontent) {
     console.log("인벤토리아이템");
 
     let invenDiv = document.querySelector(".inventory-items-div");
+    invenDiv.innerHTML="";
     // let invenDiv = document.querySelector(".inventory-items-div");
 
     // 아이템 화면에 출력
@@ -238,13 +239,19 @@ function itemBuy(itemcontent) {
         text += "</div><div>";
       }
 
-    text += `<div class="store-item">
+    // 아이템 출력
+    text = `<div id="invenitem" class="store-item" onclick="applyStat('${i['content']}')" style="cursor:pointer; width:150px;">
     <div style="font-weight:600;">${i['content']}</div>
     <div class="store-item-img" style="background-image:url(${i['itemimg']});"</div></div>`;
 
-    invenDiv.innerHTML=text;
+    // text += `<div class="store-item">
+    // <div style="font-weight:600;">${i['content']}</div>
+    // <div class="store-item-img" style="background-image:url(${i['itemimg']});"</div></div>`;
+
+    invenDiv.innerHTML+=text;
     });
     text += "</div>";
+
 
   }
 
@@ -286,11 +293,13 @@ function itemBuy(itemcontent) {
     
         // 아이템 화면에 출력
         let text = "<div>";
-    
-        text += `<div class="store-item">
-        <div style="font-weight:600;">${item['content']}</div>
-          <div>${num}<div>
-        <div class="store-item-img" style="background-image:url(${item['itemimg']});"</div></div>`;
+
+        
+        
+        // text += `<div class="store-item">
+        // <div style="font-weight:600;">${item['content']}</div>
+        //   <div>${num}<div>
+        // <div class="store-item-img" style="background-image:url(${item['itemimg']});"</div></div>`;
     
         invenDiv.innerHTML+=text;
         text += "</div>";
@@ -311,9 +320,10 @@ function itemBuy(itemcontent) {
 
 
   // ==========================================
-  // 아이템 버튼 누르면 실행되는 함수
+  // // 아이템 버튼 누르면 실행되는 함수
 function useItem() {
-  let invenItemDiv = document.querySelector('.inven-item');
+  // let invenItemDiv = document.querySelector('.inven-item');
+  let invenItemDiv = document.querySelector('.inventory-items-div');
   invenItemDiv.innerHTML = "";
   
   inven.forEach(function(i) {
@@ -348,7 +358,8 @@ function applyStat(itemcontent) {
   });
 
   // // 아이템 화면 삭제
-  document.querySelector('.inven-item').innerHTML = '';
+  document.querySelector('.inventory-items-div').innerHTML = '';
+  openInven();
 
   // 메인화면 스탯 변경
   mainStatSet();
